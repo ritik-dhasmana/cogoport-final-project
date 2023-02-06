@@ -23,6 +23,6 @@ class ArticleController < ApplicationController
                 article.categories << cat  
             end
         }
-        render json: article.categories;
+        render json: article.to_json(include: [:categories,:user]);
     end
 end
