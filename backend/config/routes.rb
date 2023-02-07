@@ -5,9 +5,22 @@ Rails.application.routes.draw do
   get "/articles/", to: "article#index"
 
   post "/articles/", to: "article#create"
-
+  delete "/articles/", to: "article#delete"
+  put "/articles/", to: "article#update"
+  
 
   get "/category", to: "category#index"
-  
+
   post "/category", to: "category#create"
+
+
+  get '/users/', to: "user#index"
+  get '/users/profile', to: "user#user_profile"
+  get '/users/articles', to: "user#get_user_articles"
+
+  post '/users', to: "user#create"
+  post '/users/login', to: 'user#login'
+
+  put '/users', to: 'user#update'
+  delete '/users', to: 'user#delete'
 end
