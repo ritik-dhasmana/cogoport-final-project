@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   post "/articles/", to: "article#create"
   delete "/articles/", to: "article#delete"
   put "/articles/", to: "article#update"
-  
+  post "/articles/like", to: "article#like"
+  post "/articles/comment", to: "article#comment"
 
   get "/category", to: "category#index"
 
@@ -23,4 +24,5 @@ Rails.application.routes.draw do
 
   put '/users', to: 'user#update'
   delete '/users', to: 'user#delete'
+
 end
