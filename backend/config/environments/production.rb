@@ -1,6 +1,24 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
+  #MAILER SETTINGS 
+  config.action_mailer.delivery_method = :smtp
+  host = 'smtp.gmail.com'
+  config.action_mailer.smtp_settings = 
+  {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'mail.google.com',
+    user_name:            'amartya.c26@gmail.com',
+    password:             'mytslgxsmhfvkwyv',
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5 
+  }
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
