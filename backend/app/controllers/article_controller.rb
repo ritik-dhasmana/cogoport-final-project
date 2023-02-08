@@ -103,7 +103,7 @@ class ArticleController < ApplicationController
             @user.likes << Like.create(article_id: params[:article_id]) 
             article.likes_count +=1;
             article.save
-            render json: article.likes
+            render json: article
         rescue =>exception 
             render json: {error: exception}, status: :unauthorized
         end
@@ -114,7 +114,7 @@ class ArticleController < ApplicationController
             @user.comments << Comment.create(article_id: params[:article_id], text: params[:text]) 
             article.comments_count +=1;
             article.save
-            render json: article.comments
+            render json: article
         rescue =>exception 
             render json: {error: exception}, status: :unauthorized
         end
