@@ -66,7 +66,7 @@ class ArticleController < ApplicationController
                 article.text = params[:text]
             end
             if(params[:image_url])
-                article.title = params[:image_url]
+                article.image_url = params[:image_url]
             end
             if(params[:categories])
                 article.categories = [];
