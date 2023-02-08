@@ -298,3 +298,23 @@ http://localhost:3000/articles
  - Gets the users in descending order of count of likes on all their post
  - Body Parameters - None
  - response - returns a list of users
+
+#### - POST /users/password/forgot
+ - Sends an email to the registered email account with a temporary token to reset the password
+ - Body Parameters -
+ ```
+  "email": string(mandatory, unique)
+ ```
+ - response - status: ok
+ 
+ 
+#### - POST /users/password/reset
+ - Resets the old password to the new password entered by the user
+ - Body Parameters -
+ ```
+  "email": string(mandatory, unique),
+  "password": string(mandatory),
+  "token": string(mandatory) [Token sent via email in forgot password API]
+ ```
+ - response - returns the user with update password
+ 
