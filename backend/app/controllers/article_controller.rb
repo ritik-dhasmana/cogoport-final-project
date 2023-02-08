@@ -120,4 +120,13 @@ class ArticleController < ApplicationController
         end
     end
 
+    def most_liked 
+        article = Article.order("likes_count DESC")
+        render json: article;
+    end
+
+    def most_commented 
+        article = Article.order("comments_count DESC")
+        render json: article;
+    end
 end
