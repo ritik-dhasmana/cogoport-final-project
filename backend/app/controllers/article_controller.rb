@@ -3,6 +3,8 @@ class ArticleController < ApplicationController
     before_action :authenticate_request, only: [:create, :update, :delete, :like, :comment]
     def index 
         if params[:id] 
+            # puts "id " 
+            # puts params[:id]
             render json: Article.find(params[:id]).to_json( include: [:categories, :user] );
 
         elsif params[:name]

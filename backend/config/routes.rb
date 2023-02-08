@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/users/', to: "user#index"
   get '/users/profile', to: "user#user_profile"
   get '/users/articles', to: "user#get_user_articles"
+  get '/users/mostpopular', to: "user#get_most_popular"
 
   post '/users', to: "user#create"
   post '/users/login', to: 'user#login'

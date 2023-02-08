@@ -1,7 +1,7 @@
 class UserController < ApplicationController 
     skip_before_action :verify_authenticity_token
 
-    skip_before_action :authenticate_request, only: [:create, :index, :login]
+    skip_before_action :authenticate_request, only: [:create, :index, :login, :get_most_popular]
     # before_action :set_user, only: [:user_profile, :delete, :update]
 
     # GET /users
@@ -57,11 +57,22 @@ class UserController < ApplicationController
         render json: @user.articles
     end
 
+    def get_most_popular
+        # users =  User.select  "user.name, user.id, user.email, SUM(articles.likes_count) AS total_likes",
+        # :joins => "articles"
+        # :group => "users"
+        # :order => "total_likes DESC"
+        users  = User.select("users.*, SUM(articles.likes_count) as total_likes").joins(:articles).group("users.id").order("total_likes DESC");
+        render json: users;
+    end 
     private
     
     def user_params 
         params.permit(:name ,:email, :password,:description, :pfp_url)
     end
+
+    # GET /users/mostpopular 
+        
 
     # def set_user
     #     begin
