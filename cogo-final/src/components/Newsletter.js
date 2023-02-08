@@ -49,7 +49,7 @@ function Newsletter() {
     </div>
   </div>
 </section>
-{/* <!-- Section: Design Block --> */}
+
 
 </div>
     </>

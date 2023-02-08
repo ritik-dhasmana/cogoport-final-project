@@ -12,7 +12,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Follow from '../components/Follow'
 
-function Blog() {
+function AllBlog() {
 
   const [isLoading, setLoading] = useState(true);
   const [blogs, setBlogs] = useState([]);
@@ -32,32 +32,28 @@ function Blog() {
   return (
     <>
       <Navbar/>
-      <Header/>
-      <Carousel/>
 
 
 
-<div className='flex flex-wrap justify-center'>
+
+<div className='flex flex-wrap'>
       {blogs.map((r,i) => {
 
         console.log(r)
-        if(i<6) {
+
           return ( <div class="mx-8 my-4 ">
           <BlogCard info={r} k={r.id}/>
           </div>)
-        }
         
-       else return 
+        
+     
         
       })}
       </div>
 
       {/* <div className='flex flex-row flex-wrap justify-center items-center'>{BlogsCard}</div> */}
 
-      <Pagination />
-      <Cta />
-      <Pay />
-   
+
       <Footer/>
 
 
@@ -65,4 +61,4 @@ function Blog() {
   )
 }
 
-export default Blog
+export default AllBlog

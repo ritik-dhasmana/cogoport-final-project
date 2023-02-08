@@ -8,43 +8,29 @@ import Error from "./page/Error";
 import SignUp from "./page/Signup";
 import RichEditor from "./page/RichEditor";
 import axios from 'axios';
+import Login from "./page/Login";
+import Profile from "./page/Profile";
+import Header from "./components/Header";
+import AllBlog from "./page/AllPost";
 
 
 function App() {
-
-  const[blogs,setBlogs]=useState([]);
-
-  // const getblogs=async()=>
-  //   {
-  //   const blogRequest=await axios.get('http://172.25.24.73:3000/articles');
-    
-  //   setBlogs([blogRequest.data]);
-
   
-  //   console.log(blogRequest.data);
-  //   }
-
-    useEffect(async ()=>{
-      const blogRequest=await axios.get('http://172.25.24.73:3000/articles');
-    
-    setBlogs([blogRequest.data]);
-    console.log(blogs);
-
-    },[])
-    // useEffect(()=>{getblogs();},[]);
-
   return (
     <>
 
-      <Navbar/>
+      
         <Routes>
-          <Route path="/" element={<Blog Blogs={blogs}  />} />
-          <Route path="/blogs/:id" element={<BlogPost Blogs={blogs} />} />
+          <Route path="/" element={<Blog   />} />
+          <Route path="/articles/:id" element={<BlogPost/>} />
+          <Route path="/header" element={<Header/>} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/editor" element={<RichEditor />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/allBlog" element={<AllBlog />} />
           <Route path="*" element={<Error />} />
        </Routes>
-      <Footer />
 
 
     </>
