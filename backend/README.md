@@ -293,3 +293,8 @@ http://localhost:3000/articles
     }
 }
 ```
+
+#### - GET /users/mostpopular
+ - Gets the users in descending order of count of likes on all their post
+ - Body Parameters - None
+ - response - returns a list of users
